@@ -39,7 +39,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "infocusMovamApp.view.MainView",
+			"viewName": "infocus.MovamApp.view.MainView",
 			"type": "XML"
 		},
 		"dependencies": {

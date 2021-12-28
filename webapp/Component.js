@@ -1,11 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"infocusMovamApp/model/models"
+	"infocus/MovamApp/model/models"
 ], function(UIComponent, Device, models) {
 	"use strict";
 
-	return UIComponent.extend("infocusMovamApp.Component", {
+	return UIComponent.extend("infocus.MovamApp.Component", {
 
 		metadata: {
 			manifest: "json"
