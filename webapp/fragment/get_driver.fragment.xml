@@ -1,0 +1,27 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:f="sap.ui.layout.form">
+
+	<Panel>
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="Get Driver" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+			labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+			singleContainerFullSize="false">
+		<f:content>	
+		<Label text="Choose Driver Name" class="bold"/>
+		<Input/>
+		</f:content>
+		<Button text="Get Driver" class="bold" press=".onPressGetDriver"/>
+		</f:SimpleForm>
+	</Panel>
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="getDriver01" editable="false" layout="ResponsiveGridLayout" title="Vehicle" labelSpanXL="3" labelSpanL="3"
+			labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+			columnsL="1" columnsM="1" singleContainerFullSize="false">
+			<f:content>
+				<Label text="Driver Name" class="bold"/>
+				<Text text="{vehicles>/item/driver/name}"/>
+				<Label text="Mobile No." class="bold"/>
+				<Text text="{vehicles>/item/driver/mobile}"/>
+				
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</c:FragmentDefinition>

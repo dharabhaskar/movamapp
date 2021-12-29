@@ -1,4 +1,4 @@
-<mvc:View controllerName="infocus.MovamApp.controller.MainView" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+<mvc:View controllerName="ProjectSplitApp2.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true" xmlns="sap.m" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:t="sap.ui.table"
 	xmlns:u="sap.ui.unified" xmlns:c="sap.ui.core" height="100%" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
 	<SplitApp id="SplitAppDemo" initialDetail="detail" initialMaster="master">
@@ -9,31 +9,31 @@
 			</Page>
 			<!--Get All Vehicles Details Page-->
 			<Page id="getAllVehicles" title="Vehicle" backgroundDesign="Solid" showHeader="false" enableScrolling="false" class="sapUiContentPadding">
-				<c:Fragment fragmentName="infocus.MovamApp.fragment.all_vehicles" type="XML"/>
+				<c:Fragment fragmentName="ProjectSplitApp2.fragment.all_vehicles" type="XML"/>
 			</Page>
 			<!--Create Vehicle Details Page-->
 			<Page id="createVehicle" title="Vehicle" backgroundDesign="Solid">
-				<c:Fragment fragmentName="infocus.MovamApp.fragment.create_vehicle" type="XML"/>
+				<c:Fragment fragmentName="ProjectSplitApp2.fragment.create_vehicle" type="XML"/>
 			</Page>
 			<!--Update vehicles Details Page-->
 			<Page id="updateVehicle" title="Vehicle" backgroundDesign="Solid">
-				<c:Fragment fragmentName="infocus.MovamApp.fragment.update_vehicle" type="XML"/>
+				<c:Fragment fragmentName="ProjectSplitApp2.fragment.update_vehicle" type="XML"/>
 			</Page>
 			<!--Get Vehicle Details page-->
 			<Page id="getVehicle" title="Vehicle" backgroundDesign="Solid">
-				<c:Fragment fragmentName="infocus.MovamApp.fragment.get_vehicle" type="XML"/>
+				<c:Fragment fragmentName="ProjectSplitApp2.fragment.get_vehicle" type="XML"/>
 			</Page>
 			<!--Create Driver Details Page-->
 			<Page id="createDriver" title="Driver" backgroundDesign="Solid">
-				<c:Fragment fragmentName="infocus.MovamApp.fragment.create_driver" type="XML"/>
+				<c:Fragment fragmentName="ProjectSplitApp2.fragment.create_driver" type="XML"/>
 			</Page>
 			<!--Get Driver Details Page-->
 			<Page id="getDriver" title="Driver" backgroundDesign="Solid">
-				<c:Fragment fragmentName="infocus.MovamApp.fragment.get_driver" type="XML"/>
+				<c:Fragment fragmentName="ProjectSplitApp2.fragment.get_driver" type="XML"/>
 			</Page>
 			<!--Update Driver Details Page-->
 			<Page id="updateDriver" title="Driver" backgroundDesign="Solid">
-				<c:Fragment fragmentName="infocus.MovamApp.fragment.update_driver" type="XML"/>
+				<c:Fragment fragmentName="ProjectSplitApp2.fragment.update_driver" type="XML"/>
 			</Page>
 		</detailPages>
 		<masterPages>

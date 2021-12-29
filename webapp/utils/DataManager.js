@@ -92,12 +92,13 @@ infocus.MovamApp.utils.DataManager = (function() {
 			});
 		},
 		getAllVehicles: function(token) {
+			var _self=this;
 			var vehiclesApiUrl = base + "/vehicles";
 			return new Promise(function(resolve, reject) {
 				$.ajax({
 					url: vehiclesApiUrl,
 					method: "GET",
-					headers: this.getHeaderJson(token),
+					headers: _self.getHeaderJson(token),
 					success: function(response) {
 						if (response.statusCode !== 200) {
 							reject(response.message);

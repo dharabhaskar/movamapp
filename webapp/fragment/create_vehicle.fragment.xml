@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="Create Vehicle" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+			labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+			singleContainerFullSize="false">
+			<f:toolbar>
+				<Toolbar id="cv">
+					<Title id="Title1" text="Create Vehicle"/>
+					<ToolbarSpacer />
+					<Button text="Create" type="Emphasized" class="bold"/>
+					
+				</Toolbar>
+			</f:toolbar>
+			<f:content>
+				<Label text="Vehicle Name"/>
+				<Input id="name2" value="{vehicleName}"/>
+				<Label text="Vehicle No."/>
+				<Input value="{vehicleNo}"/>
+				<Label text="Year of Purchase"/>
+				<DatePicker id="yearOfPurchase" value="2015-11-23" displayFormat="yyyy" change="handlePurchaseYearChange" class="sapUiSmallMarginBottom"/>
+				<Label text="Vehicle Type"/>
+				<RadioButtonGroup id="vehicleType00" columns="3" width="100%" class="sapUiMediumMarginBottom">
+					<RadioButton id="vehicleType01" text="1"/>
+					<RadioButton id="vehicleType02" text="2"/>
+					<RadioButton id="vehicleType03" text="3"/>
+				</RadioButtonGroup>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+xmlns="sap.m"
+xmlns:core="sap.ui.core"
+xmlns:t="sap.ui.table">
+<t:Table rows="{dataSet>/vehicles}" selectionMode="MultiToggle" visibleRowCount="18" paste="onPaste" ariaLabelledBy="title">
+	<t:columns>
+		<t:Column width="8rem">
+			<Label text="Vehicle Status"/>
+			<t:template>
+				<Text text="{dataSet>status}" wrapping="false"/>
+			</t:template>
+		</t:Column>
+		<t:Column width="8rem">
+			<Label text="Vehicle No."/>
+			<t:template>
+				<Text text="{dataSet>vehicleNo}" wrapping="false"/>
+			</t:template>
+		</t:Column>
+		<t:Column width="11rem">
+			<Label text="Vehicle Name"/>
+			<t:template>
+				<Text text="{dataSet>name}" wrapping="false"/>
+			</t:template>
+		</t:Column>
+		<t:Column width="7rem">
+			<Label text="Driver Id"/>
+			<t:template>
+				<Text text="{dataSet>driver/driverId}" wrapping="false"/>
+			</t:template>
+		</t:Column>
+		<t:Column width="10rem">
+			<Label text="Driver Name"/>
+			<t:template>
+				<Text text="{dataSet>driver/name}" wrapping="false"/>
+			</t:template>
+		</t:Column>
+		<t:Column width="11rem">
+			<Label text="Driver Mobile No."/>
+			<t:template>
+				<Text text="{dataSet>driver/mobile}" wrapping="false"/>
+			</t:template>
+		</t:Column>
+	</t:columns>
+</t:Table>
+</core:FragmentDefinition>

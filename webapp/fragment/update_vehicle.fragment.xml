@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm  editable="true" layout="ResponsiveGridLayout" title="Update Vehicle" labelSpanXL="3" labelSpanL="3"
+			labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+			columnsL="1" columnsM="1" singleContainerFullSize="false">
+			<f:toolbar>
+				<Toolbar id="cv2">
+					<Title id="Title2" text="Update Vehicle"/>
+					<ToolbarSpacer />
+					<Button text="Update" type="Emphasized" class="bold"/>
+					
+				</Toolbar>
+			</f:toolbar>
+			<f:content>
+				<Label text="Vehicle Name"/>
+				<Input id="name3" value="{vehicleName}"/>
+				<Label text="Vehicle No."/>
+				<Input value="{vehicleNo}"/>
+				<Label text="Year of Purchase"/>
+				<DatePicker id="DP12" value="2015-11-23" displayFormat="yyyy" change="handleChange" class="sapUiSmallMarginBottom"/>
+				<Label text="Vehicle Type"/>
+				<Label text="Vehicle Type"/>
+				<RadioButtonGroup id="vehicleType10" columns="3" width="100%" class="sapUiMediumMarginBottom">
+					<RadioButton id="vehicleType11" text="1"/>
+					<RadioButton id="vehicleType12" text="2"/>
+					<RadioButton id="vehicleType13" text="3"/>
+				</RadioButtonGroup>
+				<Label text="Active"/>
+				<RadioButtonGroup id="active00" columns="2" width="100%" class="sapUiMediumMarginBottom">
+					<RadioButton id="active01" text="Yes"/>
+					<RadioButton id="active02" text="No"/>
+				</RadioButtonGroup>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,25 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Text text="Choose Vehicle Name:" class="bold"/>
+	<Panel>
+		<Select id="getVehicle00" items="{ path: 'dataSet>/vehicles' }">
+			<items>
+				<c:Item key="{dataSet>id}" text="{dataSet>name}"/>
+			</items>
+		</Select>
+		<Button text="Get Vehicle" class="bold" press=".onPressGetVehicle"/>
+	</Panel>
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="getVehicle01" editable="false" layout="ResponsiveGridLayout" title="Vehicle" labelSpanXL="3" labelSpanL="3"
+			labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
+			columnsL="1" columnsM="1" singleContainerFullSize="false">
+			<f:content>
+				<Label text="Vehicle Name" class="bold"/>
+				<Text text="{dataSet>/item/name}"/>
+				<Label text="Vehicle No." class="bold"/>
+				<Text text="{dataSet>/item/vehicleNo}"/>
+				<Label text="Status" class="bold"/>
+				<Text text="{dataSet>/item/status}"/>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</c:FragmentDefinition>
