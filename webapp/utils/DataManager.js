@@ -92,12 +92,57 @@ infocus.MovamApp.utils.DataManager = (function() {
 			});
 		},
 		getAllVehicles: function(token) {
-			var _self=this;
+			var _self = this;
 			var vehiclesApiUrl = base + "/vehicles";
 			return new Promise(function(resolve, reject) {
 				$.ajax({
 					url: vehiclesApiUrl,
 					method: "GET",
+					headers: _self.getHeaderJson(token),
+					success: function(response) {
+						if (response.statusCode !== 200) {
+							reject(response.message);
+							return
+						}
+						resolve(response);
+					},
+					error: function(err) {
+						reject(err);
+					}
+				});
+			});
+		},
+		// create vehicle
+		createVehicles: function(token,vehicle) {
+			var _self = this;
+			var vehiclesApiUrl = base + "/vehicles";
+			return new Promise(function(resolve, reject) {
+				$.ajax({
+					url: vehiclesApiUrl,
+					method: "POST",
+					headers: _self.getHeaderJson(token),
+					data: JSON.stringify(vehicle),
+					success: function(response) {
+						if (response.statusCode !== 200) {
+							reject(response.message);
+							return
+						}
+						resolve(response);
+					},
+					error: function(err) {
+						reject(err);
+					}
+				});
+			});
+		},
+		// Update vehicle
+		updateVehicles: function(token,vehicleNo,vehicle) {
+			var _self = this;
+			var vehiclesApiUrl = base + "/vehicles/"+vehicleNo;
+			return new Promise(function(resolve, reject) {
+				$.ajax({
+					url: vehiclesApiUrl,
+					method: "PUT",
 					headers: _self.getHeaderJson(token),
 					success: function(response) {
 						if (response.statusCode !== 200) {
@@ -120,8 +165,8 @@ infocus.MovamApp.utils.DataManager = (function() {
 				"Content-Type": "application/json",
 				"Accept": "application/json",
 			}
-			if(token){
-				header.Authorization=`Bearer ${token}`;
+			if (token) {
+				header.Authorization = `Bearer ${token}`;
 			}
 			return header;
 		}
