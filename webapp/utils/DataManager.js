@@ -113,32 +113,50 @@ infocus.MovamApp.utils.DataManager = (function() {
 			});
 		},
 		// create vehicle
-		createVehicles: function(token,vehicle) {
+		createVehicles: function(token, vehicle) {
 			var _self = this;
 			var vehiclesApiUrl = base + "/vehicles";
+
+			var formdata = new FormData();
+			formdata.append("integration_id", vehicle.integration_id);
+			formdata.append("tonnage_id", vehicle.tonnage_id);
+			formdata.append("vehicle_make_id", vehicle.vehicle_make_id);
+			formdata.append("registration_number", vehicle.registration_number);
+			formdata.append("vehicle_type", vehicle.vehicle_type);
+			formdata.append("year_of_purchase", vehicle.year_of_purchase);
+			formdata.append("registration_state", vehicle.registration_state);
+			formdata.append("front_side_image", vehicle.front_side_image);
+			formdata.append("right_side_image", vehicle.right_side_image);
+			formdata.append("left_side_image", vehicle.left_side_image);
 			return new Promise(function(resolve, reject) {
 				$.ajax({
 					url: vehiclesApiUrl,
 					method: "POST",
-					headers: _self.getHeaderJson(token),
-					data: JSON.stringify(vehicle),
+					//headers: _self.getHeaderJson(token),
+					enctype: "multipart/form-data",
+					data: formdata,
+					processData: false,
+					contentType: false,
+					cache: false,
 					success: function(response) {
 						if (response.statusCode !== 200) {
 							reject(response.message);
 							return
 						}
+						console.log(response);
 						resolve(response);
 					},
 					error: function(err) {
+						console.log(err);
 						reject(err);
 					}
 				});
 			});
 		},
 		// Update vehicle
-		updateVehicles: function(token,vehicleNo,vehicle) {
+		updateVehicles: function(token, vehicleNo, vehicle) {
 			var _self = this;
-			var vehiclesApiUrl = base + "/vehicles/"+vehicleNo;
+			var vehiclesApiUrl = base + "/vehicles/" + vehicleNo;
 			return new Promise(function(resolve, reject) {
 				$.ajax({
 					url: vehiclesApiUrl,
