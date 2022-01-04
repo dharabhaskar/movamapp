@@ -2,7 +2,7 @@
 xmlns="sap.m"
 xmlns:core="sap.ui.core"
 xmlns:t="sap.ui.table">
-<t:Table rows="{dataSet>/vehicles}" selectionMode="MultiToggle" visibleRowCount="18" paste="onPaste" ariaLabelledBy="title">
+<t:Table rows="{dataSet>/vehicles}" selectionMode="MultiToggle" visibleRowCount="16" paste="onPaste" ariaLabelledBy="title">
 	<t:columns>
 		<t:Column width="8rem">
 			<Label text="Vehicle Status"/>

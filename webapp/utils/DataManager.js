@@ -158,11 +158,20 @@ infocus.MovamApp.utils.DataManager = (function() {
 		updateVehicles: function(token, vehicleNo, vehicle) {
 			var _self = this;
 			var vehiclesApiUrl = base + "/vehicles/" + vehicleNo;
+			
+			
 			return new Promise(function(resolve, reject) {
+				// console.log(vehicle);
 				$.ajax({
+					
 					url: vehiclesApiUrl,
 					method: "PUT",
 					headers: _self.getHeaderJson(token),
+					enctype: "multipart/form-data",
+					data: vehicle,
+					processData: false,
+					// contentType: false,
+					cache: false,
 					success: function(response) {
 						if (response.statusCode !== 200) {
 							reject(response.message);
@@ -172,6 +181,7 @@ infocus.MovamApp.utils.DataManager = (function() {
 					},
 					error: function(err) {
 						reject(err);
+						// console.log(vehicle, err);
 					}
 				});
 			});

@@ -35,6 +35,7 @@ sap.ui.define([
 			var oModel = new JSONModel(this.obj);
 
 			this.getView("createVehicle").setModel(oModel, "CVM");
+			this.getView("updateVehicle").setModel(oModel, "CVM");
 
 		},
 
@@ -70,6 +71,42 @@ sap.ui.define([
 				console.log(err);
 			}
 
+		},
+		onPressUpdateVehicle: async function(){
+			this.obj.integration_id = this.obj.integration_id.trim();
+			this.obj.tonnage_id = this.obj.tonnage_id.trim();
+			this.obj.vehicle_make_id = this.obj.vehicle_make_id.trim();
+			this.obj.registration_number = this.obj.registration_number.trim();
+			this.obj.registration_state = this.obj.registration_state.trim();
+			var rbv = this.byId("vehicleType10").getSelectedButton().mProperties.text;
+			var dpv = this.byId("yearOfPurchase2").getDateValue();
+			this.obj.year_of_purchase = dpv.getFullYear();
+			this.obj.vehicle_type = rbv;
+			this.obj.tonnage_id = parseInt(this.obj.tonnage_id);
+			this.obj.vehicle_make_id = parseInt(this.obj.vehicle_make_id);
+			// console.log(this.getView("updateVehicle").getModel("CVM").oData);
+			var vehicle = this.getView("updateVehicle").getModel("CVM").oData;
+			var fU1 = this.getView().byId("fileUploader4");
+			var domRef1 = fU1.getFocusDomRef();
+			var file1 = domRef1.files[0];
+			this.obj.front_side_image = file1;
+			var fU2 = this.getView().byId("fileUploader5");
+			var domRef2 = fU2.getFocusDomRef();
+			var file2 = domRef2.files[0];
+			this.obj.right_side_image = file2;
+			var fU3 = this.getView().byId("fileUploader6");
+			var domRef3 = fU3.getFocusDomRef();
+			var file3 = domRef3.files[0];
+			this.obj.left_side_image = file3;
+			var rbv1 = this.byId("method00").getSelectedButton().mProperties.text;
+			var rbv2 = this.byId("active00").getSelectedButton().mProperties.text;
+			this.obj._method = rbv1;
+			this.obj.active = rbv2;
+			try {
+				var response = await DataManager.updateVehicles(this.token, vehicle.registration_number, vehicle);
+			} catch (err) {
+				console.log(err);
+			}
 		},
 
 		onPressGetVehicle: function() {
