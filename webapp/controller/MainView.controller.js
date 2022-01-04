@@ -39,6 +39,11 @@ sap.ui.define([
 		},
 
 		onPressCreateVehicle: async function() {
+			this.obj.integration_id = this.obj.integration_id.trim();
+			this.obj.tonnage_id = this.obj.tonnage_id.trim();
+			this.obj.vehicle_make_id = this.obj.vehicle_make_id.trim();
+			this.obj.registration_number = this.obj.registration_number.trim();
+			this.obj.registration_state = this.obj.registration_state.trim();
 			var rbv = this.byId("vehicleType00").getSelectedButton().mProperties.text;
 			var dpv = this.byId("yearOfPurchase").getDateValue();
 			this.obj.year_of_purchase = dpv.getFullYear();
