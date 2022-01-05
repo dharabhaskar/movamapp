@@ -32,12 +32,20 @@ sap.ui.define([
 				left_side_image: " "
 
 			};
+			this.obj2={
+				name:" ",
+				driverMobile:" "
+			};
+			var oModel2= new JSONModel(this.obj2);
 			var oModel = new JSONModel(this.obj);
-
+            this.getView("createDriver").setModel(oModel2, "CDM"); 
 			this.getView("createVehicle").setModel(oModel, "CVM");
 			this.getView("updateVehicle").setModel(oModel, "CVM");
 
 		},
+		// onPressCreateDriver:function(){
+		// 	console.log(this.obj2);
+		// }
 
 		onPressCreateVehicle: async function() {
 			this.obj.integration_id = this.obj.integration_id.trim();
@@ -108,6 +116,7 @@ sap.ui.define([
 				console.log(err);
 			}
 		},
+		
 
 		onPressGetVehicle: function() {
 			var sel = this.byId("getVehicle00").getSelectedKey();

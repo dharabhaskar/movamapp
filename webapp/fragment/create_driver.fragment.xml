@@ -1,4 +1,5 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified">
 	<VBox class="sapUiSmallMargin">
 		<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="Create Driver" labelSpanXL="3" labelSpanL="3"
 			labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1"
@@ -6,27 +7,36 @@
 			<f:toolbar>
 				<Toolbar id="cd">
 					<Title id="Title3" text="Create Vehicle"/>
-					<ToolbarSpacer />
-					<Button text="Create" type="Emphasized" class="bold"/>
-					
+					<ToolbarSpacer/>
+					<Button text="Create" type="Emphasized" class="bold" press=".onPressCreateDriver"/>
 				</Toolbar>
 			</f:toolbar>
 			<f:content>
-				<Label text="Driver Name"/>
-				<Input id="driverName" value="{driverName}"/>
-				<Label text="Date of Birth"/>
-				<Input value="{dateOfBirth}"/>
+				<Label text="Name"/>
+				<Input id="driverName" value="{CDM>/name}"/>
 				<Label text="Gender"/>
 				<RadioButtonGroup id="gender00" columns="2" width="100%" class="sapUiMediumMarginBottom">
 					<RadioButton id="gender01" text="Male"/>
 					<RadioButton id="gender02" text="Female"/>
 				</RadioButtonGroup>
+				<Label text="Date of Birth"/>
+				<DatePicker id="dateOfBirth" value="2014-03-26" valueFormat="yyyy-MM-dd" displayFormat="long" change="handleDriverLicenseExpiryDateChange"
+					class="sapUiSmallMarginBottom"/>
 				<Label text="Driver Mobile"/>
-				<Input id="driverMobile" value="{driverMobile}"/>
+				<Input id="driverMobile" value="{CDM>/driverMobile}"/>
 				<Label text="Driver License Number"/>
-				<Input id="driverLicenseNumber" value="{driverLicenseNumber}"/>
+				<Input id="driverLicenseNumber"/>
 				<Label text="Driver License Expiry Date"/>
-				<DatePicker id="driverLicenseExpiryDate" value="2014-03-26" valueFormat="yyyy-MM-dd" displayFormat="long" change="handleDriverLicenseExpiryDateChange" class="sapUiSmallMarginBottom"/>
+				<DatePicker id="driverLicenseExpiryDate" value="2014-03-26" valueFormat="yyyy-MM-dd" displayFormat="long"
+					change="handleDriverLicenseExpiryDateChange" class="sapUiSmallMarginBottom"/>
+				<Label text="Recent Photo"/>
+				<l:VerticalLayout>
+					<u:FileUploader id="recentPhoto"/>
+				</l:VerticalLayout>
+				<Label text="Driving License"/>
+				<l:VerticalLayout>
+					<u:FileUploader id="drivingLicense"/>
+				</l:VerticalLayout>
 			</f:content>
 		</f:SimpleForm>
 	</VBox>
