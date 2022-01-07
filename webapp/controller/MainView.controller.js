@@ -32,20 +32,11 @@ sap.ui.define([
 				left_side_image: " "
 
 			};
-			this.obj2={
-				name:" ",
-				driverMobile:" "
-			};
-			var oModel2= new JSONModel(this.obj2);
+			
 			var oModel = new JSONModel(this.obj);
-            this.getView("createDriver").setModel(oModel2, "CDM"); 
 			this.getView("createVehicle").setModel(oModel, "CVM");
-			this.getView("updateVehicle").setModel(oModel, "CVM");
 
 		},
-		// onPressCreateDriver:function(){
-		// 	console.log(this.obj2);
-		// }
 
 		onPressCreateVehicle: async function() {
 			this.obj.integration_id = this.obj.integration_id.trim();
@@ -59,7 +50,6 @@ sap.ui.define([
 			this.obj.vehicle_type = rbv;
 			this.obj.tonnage_id = parseInt(this.obj.tonnage_id);
 			this.obj.vehicle_make_id = parseInt(this.obj.vehicle_make_id);
-			console.log(this.getView("createVehicle").getModel("CVM").oData);
 			var vehicle = this.getView("createVehicle").getModel("CVM").oData;
 			var fU1 = this.getView().byId("fileUploader1");
 			var domRef1 = fU1.getFocusDomRef();
@@ -92,7 +82,7 @@ sap.ui.define([
 			this.obj.vehicle_type = rbv;
 			this.obj.tonnage_id = parseInt(this.obj.tonnage_id);
 			this.obj.vehicle_make_id = parseInt(this.obj.vehicle_make_id);
-			// console.log(this.getView("updateVehicle").getModel("CVM").oData);
+		
 			var vehicle = this.getView("updateVehicle").getModel("CVM").oData;
 			var fU1 = this.getView().byId("fileUploader4");
 			var domRef1 = fU1.getFocusDomRef();
@@ -116,8 +106,6 @@ sap.ui.define([
 				console.log(err);
 			}
 		},
-		
-
 		onPressGetVehicle: function() {
 			var sel = this.byId("getVehicle00").getSelectedKey();
 			console.log(sel);
